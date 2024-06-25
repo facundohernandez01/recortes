@@ -28,22 +28,3 @@ export function isOverlap(newCut, existingCuts) {
   }
   return false;
 }
-
-export function getAvailablePoints(baseWidth, baseHeight, cuts) {
-  const pointsX = new Set([0]);
-  const pointsY = new Set([0]);
-
-  cuts.forEach(cut => {
-    if (cut.x + cut.width < baseWidth) {
-      pointsX.add(cut.x + cut.width);
-    }
-    if (cut.y + cut.height < baseHeight) {
-      pointsY.add(cut.y + cut.height);
-    }
-  });
-
-  return {
-    xPoints: Array.from(pointsX),
-    yPoints: Array.from(pointsY)
-  };
-}

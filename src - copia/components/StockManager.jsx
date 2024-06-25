@@ -1,10 +1,6 @@
 import React from 'react';
 
-function StockManager({ leftovers, onDeleteCut }) {
-  const handleDelete = (index) => {
-    onDeleteCut(index);
-  };
-
+function StockManager({ leftovers }) {
   return (
     <div>
       <h2>Stock Manager</h2>
@@ -13,7 +9,6 @@ function StockManager({ leftovers, onDeleteCut }) {
           leftovers.map((leftover, index) => (
             <li key={index}>
               {`Width: ${leftover.width}, Height: ${leftover.height}`}
-              <button onClick={() => handleDelete(index)}>Delete</button>
             </li>
           ))
         ) : (

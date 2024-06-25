@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function InputForm({ onNewCut, error, availablePoints }) {
+function InputForm({ onNewCut, error }) {
   const [width, setWidth] = useState('');
   const [height, setHeight] = useState('');
   const [x, setX] = useState('');
@@ -32,18 +32,20 @@ function InputForm({ onNewCut, error, availablePoints }) {
         placeholder="Height (cm)"
         required
       />
-      <select value={x} onChange={(e) => setX(e.target.value)}>
-        <option value="">Select X Position</option>
-        {availablePoints.xPoints.map(point => (
-          <option key={point} value={point}>{point}</option>
-        ))}
-      </select>
-      <select value={y} onChange={(e) => setY(e.target.value)}>
-        <option value="">Select Y Position</option>
-        {availablePoints.yPoints.map(point => (
-          <option key={point} value={point}>{point}</option>
-        ))}
-      </select>
+      <input
+        type="number"
+        value={x}
+        onChange={(e) => setX(e.target.value)}
+        placeholder="X Position (cm)"
+        required
+      />
+      <input
+        type="number"
+        value={y}
+        onChange={(e) => setY(e.target.value)}
+        placeholder="Y Position (cm)"
+        required
+      />
       <button type="submit">Add Cut</button>
     </form>
   );
